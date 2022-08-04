@@ -6,19 +6,21 @@ console.log(path.join(__dirname,'../public'));
 
 const app=express()
 
-app.use(express.static(path.join(__dirname,'../public')))
-// app.get('',(req,res)=>{
-//     res.send('hello express!')
-// })
-// app.get('/help',(req,res)=>{
-//     res.send('<h1>help</h1>')
-// })
-// app.get('/about',(req,res)=>{
-//     res.send({
-//         name:'saurabh',
-//         age:22
-//     })
-// })
+// app.use(express.static(path.join(__dirname,'../public')))
+
+// handelbars ------
+app.set('view engine','hbs')
+
+app.get('',(req,res)=>{
+    res.render('index',{
+        title:'saurabh',
+        age:'22'
+    })
+    // res.render('index')
+})
+
+
+
 
 
 app.listen(3000,()=>{

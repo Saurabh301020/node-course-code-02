@@ -32,6 +32,24 @@ app.get('/about',(req,res)=>{
     })
 })
 
+// 404 error
+
+app.get('/help/*',(req,res)=>{
+    res.render('404',{
+        title:'404',
+        errorMsg:'there is no file exist in database for help page sorry!'
+    })
+    // res.send('404 error occure!')
+})
+
+app.get('*',(req,res)=>{
+    res.render('404',{
+        title:'404',
+        errorMsg:'there is no file exist in database sorry!'
+    })
+    // res.send('404 error occure!')
+})
+
 app.listen(3000,()=>{
     console.log('server is start ....');
 })
